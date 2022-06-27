@@ -1,0 +1,266 @@
+{
+	"info": {
+		"_postman_id": "b437beed-f682-4cfe-b310-2ebc3f1aa35f",
+		"name": "bulletinBoard",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20111806"
+	},
+	"item": [
+		{
+			"name": "Get all notice",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}:{{port}}/notice/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"notice",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get base on ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}:{{port}}/notice/62b9f0e59a2f14274315683b",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"notice",
+						"62b9f0e59a2f14274315683b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get 404 error",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}:{{port}}/sqdqsdqw",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"sqdqsdqw"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get time by heartbeat",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}:{{port}}/heartbeat",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"heartbeat"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post correct notice",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Sprzedam dom2\",\n    \"description\": \"Sprzedam dom rozwalony\",\n    \"author\": \"Janusz\",\n    \"category\": \"nieruchomości\",\n    \"tags\": [\"Drewniane\", \"białe\", \"nowy\", \"tanio\"],\n    \"price\": \"300\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}:{{port}}/notice",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"notice"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post incorrect data",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Sprzedam stół\",\n    \"description\": \"stół retro podwojny połysk\",\n    \"category\": \"Meble uzywane\",\n    \"tags\": [\"stare meble\", \"lakier\", \"podwojny połysk\"],\n    \"price\": \"99\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}:{{port}}/notice/",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"notice",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete all notice",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}:{{port}}/delete",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete one notice by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseURL}}:{{port}}/notice/62b9f839df97525cc101e441",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"notice",
+						"62b9f839df97525cc101e441"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update correct notice",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Sprzedam lampke nocna\",\n    \"description\": \"Sprzedam lampke nocna led\",\n    \"author\": \"Radosław\",\n    \"category\": \"Oświetlenie\",\n    \"tags\": [\"LED\", \"cieplo biały\", \"w super stanie\", \"oszczędność\"],\n    \"price\": \"50\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}:{{port}}/notice/62b9f0e59a2f14274315683a",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"notice",
+						"62b9f0e59a2f14274315683a"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update with the same data as previous",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"_id\": \"62b9eaefbfddfc228ce61a52\",\n        \"title\": \"zegarek\",\n        \"description\": \"srzedamzegarek marki casio stan idealny\",\n        \"autor\": \"Maria\",\n        \"category\": \"moda\",\n        \"tags\": [\n            \"zegarek\",\n            \"casio\",\n            \"prezent dla me\",\n            \"\"\n        ],\n        \"price\": \"1200\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}:{{port}}/notice/62b220114b2326ce507c3618",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"notice",
+						"62b220114b2326ce507c3618"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update with incorrect ID",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"title\": \"Sprzedam lampke nocna\",\n    \"description\": \"Sprzedam lampke nocna led\",\n    \"author\": \"Radosław\",\n    \"category\": \"Oświetlenie\",\n    \"tags\": [\"LED\", \"cieplo biały\", \"w super stanie\", \"oszczędność\"],\n    \"price\": \"50\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseURL}}:{{port}}/notice/123456789012",
+					"host": [
+						"{{baseURL}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"notice",
+						"123456789012"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "localhost"
+		}
+	]
+}
